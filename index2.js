@@ -4,19 +4,18 @@
 
 
 
-let favRecipes = {
-
-    allRecipes: {
+let favRecipes = [
 
         recipe1: {
 
             title: 'spicy beef pasta',
             servings: '4',
-            ingredients: ['cheese', 'penne pasta', 'tomatoes', 'beef', 'chili']
+            ingredients: ['cheese', 'penne pasta', 'tomatoes', 'beef', 'chili'],
+            getRecipe(){
+                return  `here is a recipe for -${this.title} and it serves ${this.servings}, these are ingredients ${this.ingredients} `
+            }
 
         },
-
-
 
         //2. Create multiple recipes and store them as an array, so we can iterate over them later.
 
@@ -24,7 +23,10 @@ let favRecipes = {
 
             title: 'pork burger',
             servings: '4',
-            ingredients: ['cheese', 'pork', 'bread', 'bbq sauce', 'lettuce']
+            ingredients: ['cheese', 'pork', 'bread', 'bbq sauce', 'lettuce'],
+            getRecipe(){
+                return  `here is a recipe for -${this.title} and it serves ${this.servings}, these are ingredients ${this.ingredients} `
+            }
         },
 
 
@@ -32,29 +34,22 @@ let favRecipes = {
 
             title: 'Spanish Paella',
             servings: '8',
-            ingredients: ['rice', 'saffron', 'calamari', 'muscles', 'prawns', 'chicken']
-        }
+            ingredients: ['rice', 'saffron', 'calamari', 'muscles', 'prawns', 'chicken'],
+            getRecipe(){
+                return  `here is a recipe for -${this.title} and it serves ${this.servings}, these are ingredients ${this.ingredients} `
+            }
+        },
+];
 
-    }
-
-};
-
-
-// ?????? not sure if all this next stuff is correct, but it does work. 
-
-
-
-
-// array from step 2. 
-const recipes = [favRecipes.allRecipes.recipe1, favRecipes.allRecipes.recipe2, favRecipes.allRecipes.recipe3]
 
 
 
 //3. Add a function to each of the objects that returns a string: 'here is a recipe for -- and it serves --, these are the ingredients --, --, --, --' (try using a loop)
 // created a working loop. Creates a new variable with the stuff inside favRecipes.allRecipes. 
-
-for (let finalRecipes in favRecipes.allRecipes) {
-    console.log(`Here is a recipe for ${favRecipes.allRecipes[finalRecipes].title}, and it serves ${favRecipes.allRecipes[finalRecipes].servings}. These are the ingredients ${favRecipes.allRecipes[finalRecipes].ingredients}`)
+// if just creating for loops with iterators is easier than do that
+// for(let i =0; i < favRecipes.length; i++)
+for (item of favRecipes) {
+    console.log(item.getRecipe());    
 };
 
 
